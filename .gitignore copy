@@ -1,0 +1,40 @@
+# LaTeX build process artifacts
+*.acn
+*.acr
+*.alg
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.log
+*.out
+*.pyg
+*.toc
+Crypto101.brf
+# Book, rendered or partially rendered
+Crypto101.tex
+Crypto101.pdf
+Crypto101.epub
+*~
+# Source highlighting
+_minted-Crypto101
+*.mps
+*.mpx
+*.mpo
+# OS X stuff
+.DS_Store
+.auctex-auto
+.mypy_cache
+.venv
+_build
+_build_*
+__pycache__
+mptextmp.mp

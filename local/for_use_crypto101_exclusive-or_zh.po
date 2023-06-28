@@ -1,0 +1,618 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Laurens Van Houtven (lvh)
+# This file is distributed under the same license as the Crypto 101 package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# 振霞 苑 <yuanzhenxia-2008@163.com>, 2021
+# fang xing <fangxing204@gmail.com>, 2023
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Crypto 101 f82123a\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-16 22:25-0700\n"
+"PO-Revision-Date: 2020-06-07 15:30+0000\n"
+"Last-Translator: fang xing <fangxing204@gmail.com>, 2023\n"
+"Language-Team: Chinese (https://app.transifex.com/crypto101/teams/110558/zh/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../../src/exclusive-or.rst:2
+msgid "Exclusive or"
+msgstr "异或"
+
+#: ../../src/exclusive-or.rst:5
+msgid "Description"
+msgstr "说明"
+
+#: ../../src/exclusive-or.rst:7
+msgid ""
+"Exclusive or, often called “XOR”, is a Boolean [#boolean]_ binary [#binary]_"
+" operator that is true when either the first input or the second input, but "
+"not both, are true."
+msgstr ""
+"异或（Exclusive or），通常称为“XOR”，是一个布尔 [#boolean]_ 二进制 "
+"[#binary]_运算符，当第一个输入和第二个输入不相同时，该运算结果为true。"
+
+#: ../../src/exclusive-or.rst:11
+msgid ""
+"Another way to think of XOR is as something called a “programmable "
+"inverter”: one input bit decides whether to invert the other input bit, or "
+"to just pass it through unchanged. “Inverting” bits is colloquially called "
+"“flipping” bits, a term we'll use often throughout the book."
+msgstr ""
+"另一种思考XOR的方式是称为“可编程逆变器”的东西：一个输入位决定是倒置另一个输入位，还是直接输出不做改变。“倒置”位通俗地称为“翻转”位，我们将在全书中经常使用这个术语。"
+
+#: ../../src/exclusive-or.rst:20
+msgid ""
+"In mathematics and cryptography papers, exclusive or is generally "
+"represented by a cross in a circle: :math:`\\xor`. We'll use the same "
+"notation in this book:"
+msgstr "在数学和密码学论文中，异或一般用内嵌十字的圆圈表示：:math:`/xor`。本书将使用同样的符号："
+
+#: ../../src/exclusive-or.rst:28
+msgid ""
+"The inputs and output here are named as if we're using XOR as an encryption "
+"operation. On the left, we have the plaintext bit :math:`P_i`. The :math:`i`"
+" is just an index, since we'll usually deal with more than one such bit. On "
+"top, we have the key bit :math:`k_i`, that decides whether or not to invert "
+":math:`P_i`. On the right, we have the ciphertext bit, :math:`C_i`, which is"
+" the result of the XOR operation."
+msgstr ""
+"此处的输入和输出的命名就好像我们将XOR用作加密操作一样。左边是明文比特:math:`P_i`。:math:`i`只是一个索引，因为我们通常会处理多个这样的比特位。上面我们有一个密钥比特:math:`k_i`，它决定是否反转:math:`P_i`。在右边，我们有密文比特"
+" :math:`C_i`，这是XOR操作的结果。"
+
+#: ../../src/exclusive-or.rst:37
+msgid "Uses only “true” and “false” as input and output values."
+msgstr "仅使用“true”和“false”作为输入和输出值。"
+
+#: ../../src/exclusive-or.rst:40
+msgid "Takes two parameters."
+msgstr "取两个参数"
+
+#: ../../src/exclusive-or.rst:43
+msgid "A few properties of XOR"
+msgstr "XOR的几个性质"
+
+#: ../../src/exclusive-or.rst:45
+msgid ""
+"Since we'll be dealing with XOR extensively during this book, we'll take a "
+"closer look at some of its properties. If you're already familiar with how "
+"XOR works, feel free to skip this section."
+msgstr "由于在本书中我们将广泛地涉及和使用XOR，所以我们将仔细研究它的一些特性。如果你已经熟悉XOR，可以跳过本节。"
+
+#: ../../src/exclusive-or.rst:49
+msgid ""
+"We saw that the output of XOR is 1 when one input or the other (but not "
+"both) is 1:"
+msgstr "我们知道两个输入中一个为（但不都为）1时，XOR的输出为1。"
+
+#: ../../src/exclusive-or.rst:52
+msgid ""
+"\\begin{array}{c@{\\hspace{2em}}c} 0 \\xor 0 = 0 & 1 \\xor 0 = 1 \\\\ 0 "
+"\\xor 1 = 1 & 1 \\xor 1 = 0 \\end{array}"
+msgstr ""
+"\\begin{array}{c@{\\hspace{2em}}c} 0 \\xor 0 = 0 & 1 \\xor 0 = 1 \\\\ 0 "
+"\\xor 1 = 1 & 1 \\xor 1 = 0 \\end{array}"
+
+#: ../../src/exclusive-or.rst:59
+msgid "There are a few useful arithmetic tricks we can derive from that."
+msgstr "我们可以从中得出一些有用的运算技巧。"
+
+#: ../../src/exclusive-or.rst:61
+msgid ""
+"You can apply XOR in any order: :math:`a \\xor (b \\xor c) = (a \\xor b) "
+"\\xor c`"
+msgstr "XOR运算可以任意调换顺序：:math:`a \\xor (b \\xor c) = (a \\xor b) \\xor c`"
+
+#: ../../src/exclusive-or.rst:63
+msgid "You can flip the operands around: :math:`a \\xor b = b \\xor a`"
+msgstr "您可以翻转操作数：:math:`a \\xor b = b \\xor a`"
+
+#: ../../src/exclusive-or.rst:64
+msgid ""
+"Any bit XOR itself is 0: :math:`a \\xor a = 0`. If :math:`a` is 0, then it's"
+" :math:`0 \\xor 0 = 0`; if :math:`a` is 1, then it's :math:`1 \\xor 1 = 0`."
+msgstr ""
+"任何比特异或本身的结果是 0：:math:`a \\xor a = 0`。如果 :math:`a` 是0， 则 :math:`0 \\xor 0 = "
+"0`；如果 :math:`a` 是1， 那么 :math:`1 \\xor 1 = 0`。"
+
+#: ../../src/exclusive-or.rst:66
+msgid ""
+"Any bit XOR 0 is that bit again: :math:`a \\xor 0 = a`. If :math:`a` is 0, "
+"then it's :math:`0 \\xor 0 = 0`; if :math:`a` is 1, then it's :math:`1 \\xor"
+" 0 = 1`."
+msgstr ""
+"任何比特异或0等于本身 :math:`a \\xor 0 = a`。如果 :math:`a` 是 0，那么 :math:`0 \\xor 0 = "
+"0`；如果:math:`a` 是 1, 那么 :math:`1 \\xor 0 = 1`。"
+
+#: ../../src/exclusive-or.rst:70
+msgid "These rules also imply :math:`a \\xor b \\xor a = b`:"
+msgstr "以上性质可推出 :math:`a \\xor b \\xor a = b`："
+
+#: ../../src/exclusive-or.rst:72
+msgid ""
+"\\begin{aligned} a \\xor b \\xor a & = a \\xor a \\xor b & \\; & "
+"\\text{(second rule)} \\\\                 & = 0 \\xor b        & \\; & "
+"\\text{(third rule)} \\\\                 & = b               & \\; & "
+"\\text{(fourth rule)} \\end{aligned}"
+msgstr ""
+"\\begin{aligned} a \\xor b \\xor a & = a \\xor a \\xor b & \\; & "
+"\\text{(性质2)} \\\\ & = 0 \\xor b & \\; & \\text{(性质3)} \\\\ & = b & \\; & "
+"\\text{(性质4)} \\end{aligned}"
+
+#: ../../src/exclusive-or.rst:80
+msgid ""
+"We'll use this property often when using XOR for encryption; you can think "
+"of that first XOR with :math:`a` as encrypting, and the second one as "
+"decrypting."
+msgstr "在使用XOR进行加密时，我们经常使用这条性质。 你可以将第一个XOR :math:`a`  视为加密，而将第二个XOR视为解密。"
+
+#: ../../src/exclusive-or.rst:85
+msgid "Bitwise XOR"
+msgstr "按位异或（Bitwise XOR）"
+
+#: ../../src/exclusive-or.rst:87
+msgid ""
+"XOR, as we've just defined it, operates only on single bits or Boolean "
+"values. Since we usually deal with values comprised of many bits, most "
+"programming languages provide a “bitwise XOR” operator: an operator that "
+"performs XOR on the respective bits in a value."
+msgstr ""
+"我们刚刚定义的异或运算只对单个比特位或布尔值进行操作。由于我们通常处理值通常由许多比特位组成，大多数编程语言都提供了一个 ”按位异或“ "
+"运算符：对一个值进行逐位异或运算的运算符。"
+
+#: ../../src/exclusive-or.rst:92
+msgid ""
+"Python, for example, provides the ``^`` (caret) operator that performs "
+"bitwise XOR on integers. It does this by first expressing those two integers"
+" in binary [#binary-integer]_, and then performing XOR on their respective "
+"bits. Hence the name, *bitwise* XOR."
+msgstr ""
+"例如，Python 提供了 ``^`` (脱字符号) 运算符，可以对整数进行按位异或。它首先用二进制 [#binary-"
+"integer]_表示这两个整数，然后对它们各自的比特位进行异或运算。因此，它的名字叫*按位* 异或。"
+
+#: ../../src/exclusive-or.rst:97
+msgid ""
+"\\begin{aligned} 73 \\xor 87 & = 0b1001001 \\xor 0b1010111 \\\\            &"
+" = \\begin{array}{*{7}{C{\\widthof{$\\xor$}}}c}                    1    & 0"
+"    & 0    & 1    & 0    & 0    & 1    & \\quad \\text{(left)}\\\\"
+"                    \\xor & \\xor & \\xor & \\xor & \\xor & \\xor & \\xor & "
+"\\\\                    1    & 0    & 1    & 0    & 1    & 1    & 1    & "
+"\\quad \\text{(right)}\\\\                \\end{array} \\\\            & = "
+"\\begin{array}{*{7}{C{\\widthof{$\\xor$}}}}                    0    & 0    &"
+" 1    & 1    & 1    & 1    & 0                \\end{array} \\\\            &"
+" = 0b0011110 \\\\            & = 30 \\\\ \\end{aligned}"
+msgstr ""
+"\\begin{aligned} 73 \\xor 87 & = 0b1001001 \\xor 0b1010111 \\\\ & = "
+"\\begin{array}{*{7}{C{\\widthof{$\\xor$}}}c} 1 & 0 & 0 & 1 & 0 & 0 & 1 & "
+"\\quad \\text{(left)}\\\\ \\xor & \\xor & \\xor & \\xor & \\xor & \\xor & "
+"\\xor & \\\\ 1 & 0 & 1 & 0 & 1 & 1 & 1 & \\quad \\text{(right)}\\\\ "
+"\\end{array} \\\\ & = \\begin{array}{*{7}{C{\\widthof{$\\xor$}}}} 0 & 0 & 1 "
+"& 1 & 1 & 1 & 0 \\end{array} \\\\ & = 0b0011110 \\\\ & = 30 \\\\ "
+"\\end{aligned}"
+
+#: ../../src/exclusive-or.rst:114
+msgid ""
+"Usually, numbers are already stored in binary internally, so this doesn't "
+"actually take any work. When you see a number prefixed with “0b”, the "
+"remaining digits are a binary representation."
+msgstr "通常情况下，数字内部就是以二进制形式存储，所以这实际上不需要任何工作。当你看到一个以 \"0b \"为前缀的数字时，剩下的数字都是二进制表示。"
+
+#: ../../src/exclusive-or.rst:119
+msgid "One-time pads"
+msgstr "一次性密码本"
+
+#: ../../src/exclusive-or.rst:121
+msgid ""
+"XOR may seem like an awfully simple, even trivial operator. Even so, there's"
+" an encryption scheme, called a one-time pad, which consists of just that "
+"single operator. It's called a one-time pad because it involves a sequence "
+"(the “pad”) of random bits, and the security of the scheme depends on only "
+"using that pad once. The sequence is called a pad because it was originally "
+"recorded on a physical, paper pad."
+msgstr ""
+"XOR可能看起来是一个非常简单，甚至是微不足道的运算符。即使如此，有一种加密方案，叫做一次性密码本，它只由这一个运算符组成。它被称为一次性密码本，因为它涉及到一个随机位的序列（本子），而方案的安全性取决于密码本只使用一次。这个序列之所以被称为密码本，是因为它最初是记录在一本实体纸质本子上。"
+
+#: ../../src/exclusive-or.rst:128
+msgid ""
+"This scheme is unique not only in its simplicity, but also because it has "
+"the strongest possible security guarantee. If the bits are truly random (and"
+" therefore unpredictable by an attacker), and the pad is only used once, the"
+" attacker learns nothing about the plaintext when they see a ciphertext. "
+"[#msg-exists]_"
+msgstr ""
+"这个方案的独特之处不仅在于它的简单性，还在于它具有最强的安全保证。如果所有比特是真随机的（因此攻击者无法预测），而且密码本只用一次，那么攻击者在看到密文时，就不会获取到任何有关于明文的信息。[#msg-"
+"exists]_"
+
+#: ../../src/exclusive-or.rst:135
+msgid ""
+"The attacker does learn that the message exists, and, in this simple scheme,"
+" the length of the message. While this typically isn't too important, there "
+"are situations where this might matter, and there are secure cryptosystems "
+"to both hide the existence and the length of a message."
+msgstr ""
+"攻击者确实知道了消息的存在，以及在这个简单的方案中，消息的长度。虽然这通常不是太重要，但在某些情况下，这可能很重要，而且有一些安全的密码系统可以同时隐藏信息的存在和长度。"
+
+#: ../../src/exclusive-or.rst:142
+msgid ""
+"Suppose we can translate our plaintext into a sequence of bits. We also have"
+" the pad of random bits, shared between the sender and the (one or more) "
+"recipients. We can compute the ciphertext by taking the bitwise XOR of the "
+"two sequences of bits."
+msgstr ""
+"假设我们可以将明文翻译成一个比特序列。发送者和接受者共享了记录着随机比特序列的密码本（一个或多个），我们可以通过对两个比特序列进行位操作来计算密文。"
+
+#: ../../src/exclusive-or.rst:151
+msgid ""
+"If an attacker sees the ciphertext, we can prove that they will learn zero "
+"information about the plaintext without the key. This property is called "
+"*perfect security*. The proof can be understood intuitively by thinking of "
+"XOR as a programmable inverter, and then looking at a particular bit "
+"intercepted by Eve, the eavesdropper."
+msgstr ""
+"如果攻击者看到了密文，我们可以证明他们在没有密钥的情况下，无法得到关于明文的任何信息。这个特性被称为*完美安全*。把XOR看成是一个可编程逆变器，然后把某一个比特看作被窃听者窃听到了，就可以直观地理解这个证明。"
+
+#: ../../src/exclusive-or.rst:161
+msgid ""
+"Let's say Eve sees that a particular ciphertext bit :math:`c_i` is 1. She "
+"has no idea if the matching plaintext bit :math:`p_i` was 0 or 1, because "
+"she has no idea if the key bit :math:`k_i` was 0 or 1. Since all of the key "
+"bits are truly random, both options are exactly equally probable."
+msgstr ""
+"假设窃听者Eve看到某个密文比特:math:`c_i`是1，她不知道匹配的明文比特 "
+":math:`p_i`是0还是1，因为她不知道密钥比特:math:`k_i`是0还是1。由于所有的密钥位都是真随机的，所以这两个值的可能性完全相同。"
+
+#: ../../src/exclusive-or.rst:168
+msgid "Attacks on “one-time pads”"
+msgstr "攻击 “一次性密码本”"
+
+#: ../../src/exclusive-or.rst:170
+msgid ""
+"The one-time pad security guarantee only holds if it is used correctly. "
+"First of all, the one-time pad has to consist of truly random data. "
+"Secondly, the one-time pad can only be used once (hence the name). "
+"Unfortunately, most commercial products that claim to be “one-time pads” are"
+" snake oil [#snake-oil]_, and don't satisfy at least one of those two "
+"properties."
+msgstr ""
+"一次性密码本的安全保证只有在正确使用的情况下才有效。 首先，一次性密码本包含的数据必须是真随机的。其次，一次性密码本只能使用一次（名称的由来）。 "
+"不幸的是，大多数声称是“一次性密码本”的商业产品都是蛇油[#snake-oil]_，没有满足上面两种要求中的至少一种。"
+
+#: ../../src/exclusive-or.rst:178
+msgid ""
+"“Snake oil” is a term for all sorts of dubious products that claim "
+"extraordinary benefits and features, but don't really realize any of them."
+msgstr "“蛇油”是对各种可疑产品的称呼，它们宣称有非凡的好处和功能，但其实什么用也没有。"
+
+#: ../../src/exclusive-or.rst:183
+msgid "Not using truly random data"
+msgstr "没有用真正的随机数据"
+
+#: ../../src/exclusive-or.rst:185
+msgid ""
+"The first issue is that they use various deterministic constructs to produce"
+" the one-time pad, instead of using truly random data. That isn't "
+"necessarily insecure: in fact, the most obvious example, a synchronous "
+"stream cipher, is something we'll see later in the book. However, it does "
+"invalidate the “unbreakable” security property of one-time pads. The end "
+"user would be better served by a more honest cryptosystem, instead of one "
+"that lies about its security properties."
+msgstr ""
+"第一个问题是，他们使用各种可预测的方式来生成一次性密码本，而不是使用真正的随机数据。 "
+"这未必就不安全：实际上，最明显的例子是同步流密码，这将在本书的后面看到。 但是，它会使一次性密码本的“牢不可破”的安全属性无效。 "
+"一个更可靠的密码系统将更好地服务于终端用户，而不是谎报其安全性的密码系统。"
+
+#: ../../src/exclusive-or.rst:194
+msgid "Reusing the “one-time” pad"
+msgstr "重复使用“一次性”密码本"
+
+#: ../../src/exclusive-or.rst:196
+msgid ""
+"The other issue is with key reuse, which is much more serious. Suppose an "
+"attacker gets two ciphertexts with the same “one-time” pad. The attacker can"
+" then XOR the two ciphertexts, which is also the XOR of the plaintexts:"
+msgstr ""
+"另一个问题是密钥重用的问题，这个问题要严重得多。假设一个攻击者得到了两个使用相同 \"一次性 "
+"\"密码本的密文。攻击者就可以对这两个密文进行异或，也就是两个明文的异或。"
+
+#: ../../src/exclusive-or.rst:201
+msgid ""
+"\\begin{aligned} c_1 \\xor c_2 &= (p_1 \\xor k) \\xor (p_2 \\xor k) && "
+"(\\text{definition})\\\\ &= p_1 \\xor k \\xor p_2 \\xor k && (\\text{reorder"
+" terms})\\\\ &= p_1 \\xor p_2 \\xor k \\xor k && (a \\xor b = b \\xor a) "
+"\\\\ &= p_1 \\xor p_2 \\xor 0 && (x \\xor x = 0) \\\\ &= p_1 \\xor p_2 && (x"
+" \\xor 0 = x) \\end{aligned}"
+msgstr ""
+"\\begin{aligned} c_1 \\xor c_2 &= (p_1 \\xor k) \\xor (p_2 \\xor k) && "
+"(\\text{definition})\\\\ &= p_1 \\xor k \\xor p_2 \\xor k && (\\text{reorder"
+" terms})\\\\ &= p_1 \\xor p_2 \\xor k \\xor k && (a \\xor b = b \\xor a) "
+"\\\\ &= p_1 \\xor p_2 \\xor 0 && (x \\xor x = 0) \\\\ &= p_1 \\xor p_2 && (x"
+" \\xor 0 = x) \\end{aligned}"
+
+#: ../../src/exclusive-or.rst:212
+msgid ""
+"At first sight, that may not seem like an issue. To extract either "
+":math:`p_1` or :math:`p_2`, you'd need to cancel out the XOR operation, "
+"which means you need to know the other plaintext. The problem is that even "
+"the result of the XOR operation on two plaintexts contains quite a bit "
+"information about the plaintexts themselves. We'll illustrate this visually "
+"with some images from a broken “one-time” pad process, starting with "
+":numref:`fig-multitimepad`."
+msgstr ""
+"乍一看，这似乎没什么问题。 因为要提取出:math:`p_1`或:math:`p_2`，你需要抵消异或运算，这意味着你需要知道另一个密文的明文。 "
+"问题在于，即便两个明文异或的结果也包含有关明文本身的大量信息。 "
+"我们将用一些破解的“一次性”密码本过程的图片来直观地说明这一点，首先是:numref:`fig-multitimepad`。"
+
+#: ../../src/exclusive-or.rst:228
+msgid "First plaintext."
+msgstr "第一条明文"
+
+#: ../../src/exclusive-or.rst:234
+msgid "Second plaintext."
+msgstr "第二条明文"
+
+#: ../../src/exclusive-or.rst:240
+msgid "First ciphertext."
+msgstr "第一条密文"
+
+#: ../../src/exclusive-or.rst:246
+msgid "Second ciphertext."
+msgstr "第二条密文"
+
+#: ../../src/exclusive-or.rst:252
+msgid "Reused key."
+msgstr "被重用的密钥"
+
+#: ../../src/exclusive-or.rst:258
+msgid "XOR of ciphertexts."
+msgstr "两条密文的异或。"
+
+#: ../../src/exclusive-or.rst:220
+msgid ""
+"Two plaintexts, the re-used key, their respective ciphertexts, and the XOR "
+"of the ciphertexts. Information about the plaintexts clearly leaks through "
+"when we XOR the ciphertexts."
+msgstr "两条明文，重用的密钥，它们各自的密文和两条密文的异或。 当我们对密文进行异或运算时，明文的相关信息显然会泄漏出去。"
+
+#: ../../src/exclusive-or.rst:265
+msgid "Crib-dragging"
+msgstr "Crib-dragging"
+
+#: ../../src/exclusive-or.rst:267
+msgid ""
+"A classical approach to breaking multi-time pad systems involves “crib-"
+"dragging”, a process that uses small sequences that are expected to occur "
+"with high probability. Those sequences are called “cribs”. The name crib-"
+"dragging originated from the fact that these small “cribs” are dragged from "
+"left to right across each ciphertext, and from top to bottom across the "
+"ciphertexts, in the hope of finding a match somewhere. Those matches form "
+"the sites of the start, or “crib”, if you will, of further decryption."
+msgstr ""
+"破解非重用一次性密码本系统的一个经典方法是 \"crib-dragging\"，这是一个使用期望的高概率出现的小序列的过程。这些序列被称为 "
+"\"cribs\"。crib-dragging这个名字的由来是：这些小的 \"cribs "
+"\"会被拖动到密文的各个地方，上下左右来寻找到匹配。这些匹配构成了进一步解密的起点，或者说 \"crib\"，如果你愿意的话，就可以进行进一步的解密。"
+
+#: ../../src/exclusive-or.rst:276
+msgid ""
+"The idea is fairly simple. Suppose we have several encrypted messages "
+":math:`C_i` encrypted with the same “one-time” pad :math:`K` [#capital-"
+"letters]_. If we could correctly guess the plaintext for one of the "
+"messages, let's say :math:`C_j`, we'd know :math:`K`:"
+msgstr ""
+"这个想法相当简单。假设我们有几个加密的信息 :math:`C_i` 用相同的 “一次性” 密码本 :math:`K` [#capital-"
+"letters]_ 加密。如果我们能正确地猜出其中一条信息的明文，比如说 :math:`C_j`，我们就可以知道 :math:`K`。"
+
+#: ../../src/exclusive-or.rst:282
+msgid ""
+"We use capital letters when referring to an entire message, as opposed to "
+"just bits of a message."
+msgstr "我们使用大写字母指代整条信息，以对应小写指代信息中的部分比特。"
+
+#: ../../src/exclusive-or.rst:286
+msgid ""
+"\\begin{aligned} C_j \\xor P_j &= (P_j \\xor K) \\xor P_j \\\\ &= K \\xor "
+"P_j \\xor P_j \\\\ &= K \\xor 0 \\\\ &= K \\end{aligned}"
+msgstr ""
+"\\begin{aligned} C_j \\xor P_j &= (P_j \\xor K) \\xor P_j \\\\ &= K \\xor "
+"P_j \\xor P_j \\\\ &= K \\xor 0 \\\\ &= K \\end{aligned}"
+
+#: ../../src/exclusive-or.rst:296
+msgid ""
+"Since :math:`K` is the shared secret, we can now use it to decrypt all of "
+"the other messages, just as if we were the recipient:"
+msgstr "由于:math:`K`是一个共享的秘密，我们现在可以像接收者一样用它来解密其他所有的消息。"
+
+#: ../../src/exclusive-or.rst:299
+msgid "P_i = C_i \\xor K \\qquad \\text{for all }i"
+msgstr "P_i = C_i \\xor K \\qquad \\text{for all }i"
+
+#: ../../src/exclusive-or.rst:303
+msgid ""
+"Since we usually can't guess an entire message, this doesn't actually work. "
+"However, we might be able to guess parts of a message."
+msgstr "由于我们通常无法猜测出整条消息，这实际上是行不通的。然而，我们也许能够猜到信息的部分内容。"
+
+#: ../../src/exclusive-or.rst:306
+msgid ""
+"If we guess a few plaintext bits :math:`p_i` correctly for *any* of the "
+"messages, that would reveal the key bits at that position for *all* of the "
+"messages, since :math:`k = c_i \\xor p_i`. Hence, all of the plaintext bits "
+"at that position are revealed: using that value for :math:`k`, we can "
+"compute the plaintext bits :math:`p_i = c_i \\xor k` for all the other "
+"messages."
+msgstr ""
+"如果我们正确地猜测了*任意*一条信息中的几个明文比特 :math:`p_i`，那么就会泄露*所有*信息在该位置的密文比特位，因为 :math:`k = "
+"c_i \\xor p_i`。因此，该位置的所有明文比特位都会被泄露出来：使用 :math:`k`的值，我们可以计算所有其他信息的明文比特位 "
+":math:`p_i = c_i\\xor k`。"
+
+#: ../../src/exclusive-or.rst:313
+msgid ""
+"Guessing parts of the plaintext is a lot easier than guessing the entire "
+"plaintext. Suppose we know that the plaintext is in English. There are some "
+"sequences that we know will occur very commonly, for example (the "
+":math:`\\verb*| |` symbol denotes a space):"
+msgstr ""
+"猜测部分明文比猜测整个明文要容易得多。假设我们知道明文是用英语写的，我们知道有些单词或短语会很常见，例如（ 符号 :math:`\\verb*| "
+"|`表示一个空格）："
+
+#: ../../src/exclusive-or.rst:318
+msgid ":math:`\\verb*| the |` and variants such as :math:`\\verb*|. The |`"
+msgstr ":math:`\\verb*| the |` 以及变种，例如 :math:`\\verb*|. The |`"
+
+#: ../../src/exclusive-or.rst:319
+msgid ":math:`\\verb*| of |` and variants"
+msgstr ":math:`\\verb*| of |` 以及变种"
+
+#: ../../src/exclusive-or.rst:320
+msgid ":math:`\\verb*| to |` and variants"
+msgstr ":math:`\\verb*| to |` 以及变种"
+
+#: ../../src/exclusive-or.rst:321
+msgid ""
+":math:`\\verb*| and |` (no variants; only occurs in the middle of a "
+"sentence)"
+msgstr ":math:`\\verb*| and |` (没有变种，仅出现在语句的中间)"
+
+#: ../../src/exclusive-or.rst:322
+msgid ":math:`\\verb*| a |` and variants"
+msgstr ":math:`\\verb*| a |` 以及变种"
+
+#: ../../src/exclusive-or.rst:324
+msgid ""
+"If we know more about the plaintext, we can make even better guesses. For "
+"example, if it's HTTP serving HTML, we would expect to see things like "
+"``Content-Type``, ``<a>``, and so on."
+msgstr ""
+"如果我们对明文有更多的了解，我们可以做出更好的猜测。例如，如果是服务HTML的HTTP，我们就会猜测``Content-"
+"Type``、`<a>```等等。"
+
+#: ../../src/exclusive-or.rst:328
+msgid ""
+"That only tells us which plaintext sequences are likely, giving us likely "
+"guesses. How do we tell if any of those guesses are correct? If our guess is"
+" correct, we know all the other plaintexts at that position as well, using "
+"the technique described earlier. We could simply look at those plaintexts "
+"and decide if they look correct."
+msgstr ""
+"这只是告诉我们哪些明文序列是可能的，让我们有可能的猜测。我们如何判断这些猜测中是否有正确的呢？如果我们的猜测是正确的，使用前面描述的技术，我们也就知道了所有其他密文该位置的明文。我们可以简单地查看这些明文，并判断它们看起来是否正确。"
+
+#: ../../src/exclusive-or.rst:334
+msgid ""
+"In practice, this process needs to be automated because there are so many "
+"possible guesses. Fortunately that's quite easy to do. For example, a very "
+"simple but effective method is to count how often different symbols occur in"
+" the guessed plaintexts: if the messages contain English text, we'd expect "
+"to see a lot of letters e, t, a, o, i, n. If we're seeing binary nonsense "
+"instead, we know that the guess was probably incorrect, or perhaps that "
+"message is actually binary data."
+msgstr ""
+"在实践中，这个过程需要自动化，因为可能的猜测太多。幸运的是，这很容易做到。例如，一个非常简单但有效的方法是计算不同符号在猜测的明文中出现的频率：如果消息中包含英文文本，我们希望看到很多字母e、t、a、o、i、n，如果我们看到的是胡乱的二进制数据，我们就知道猜测可能是不正确的，或者说该消息实际上是二进制数据。"
+
+#: ../../src/exclusive-or.rst:342
+msgid ""
+"These small, highly probable sequences are called “cribs” because they're "
+"the start of a larger decryption process. Suppose your crib, ``the``, was "
+"successful and found the five-letter sequence ``t thr`` in another message. "
+"You can then use a dictionary to find common words starting with ``thr``, "
+"such as ``through``. If that guess were correct, it would reveal four more "
+"bytes in all of the ciphertexts, which can be used to reveal even more. "
+"Similarly, you can use the dictionary to find words ending in ``t``."
+msgstr ""
+"这些小的、极高可能频率的序列被称为 "
+"\"cribs\"，因为它们是一个更大的解密过程的开始。假设你的crib``the```成功地在另一条信息中找到了``t "
+"thr```的五个字母序列。然后你可以用字典找到以``thr``开头的常用词，比如``through``。如果这个猜测是正确的，就会在所有的密文中多破解出四个字节，可以用来揭示更多的信息。同样，你可以使用字典来查找以``t``结尾的词。"
+
+#: ../../src/exclusive-or.rst:351
+msgid ""
+"This becomes even more effective for some plaintexts that we know more "
+"about. If some HTTP data has the plaintext ``ent-Len`` in it, then we can "
+"expand that to ``Content-Length:``, revealing many more bytes."
+msgstr ""
+"对于一些我们比较了解的明文，这就变得更加有效。如果一些HTTP数据中含有明文``ent-Len``，那么我们就可以将其扩展为``Content-"
+"Length:```，揭示出更多的字节。"
+
+#: ../../src/exclusive-or.rst:355
+msgid ""
+"While this technique works as soon as two messages are encrypted with the "
+"same key, it's clear that this becomes even easier with more ciphertexts "
+"using the same key, since all of the steps become more effective:"
+msgstr ""
+"虽然这种技术只要用相同的密钥对两个消息进行加密就可以了，但很明显，如果更多的密文使用了相同的密钥加密，这个方法就会变得更加容易，因为所有的步骤都变得更加有效。"
+
+#: ../../src/exclusive-or.rst:360
+msgid "We get more cribbing positions."
+msgstr "我们得到了更多crib位置"
+
+#: ../../src/exclusive-or.rst:361
+msgid ""
+"More plaintext bytes are revealed with each successful crib and guess, "
+"leading to more guessing options elsewhere."
+msgstr "每一次成功的匹配和猜测都会泄露出更多的明文字节，导致其他地方有更多的猜测选择。"
+
+#: ../../src/exclusive-or.rst:363
+msgid ""
+"More ciphertexts are available for any given position, making guess "
+"validation easier and sometimes more accurate."
+msgstr "一个位置的密文越多，使得猜测验证更容易，有时也更准确。"
+
+#: ../../src/exclusive-or.rst:366
+msgid ""
+"These are just simple ideas for breaking multi-time pads. While they're "
+"already quite effective, people have invented even more effective methods by"
+" applying advanced, statistical models based on natural language analysis. "
+"This only demonstrates further just how broken multi-time pads are. "
+":cite:`mason:nltwotimepads`"
+msgstr ""
+"这些只是破解重用一次性密码本的一些简单想法。虽然它们已经相当有效，但人们通过应用基于自然语言分析的高级统计模型，发明了更有效的方法。这只能进一步证明重用一次性密码本破绽有多大。"
+" :cite:`mason:nltwotimepads`。"
+
+#: ../../src/exclusive-or.rst:373
+msgid "Remaining problems"
+msgstr "遗留问题"
+
+#: ../../src/exclusive-or.rst:375
+msgid ""
+"Real one-time pads, implemented properly, have an extremely strong security "
+"guarantee. It would appear, then, that cryptography is over: encryption is a"
+" solved problem, and we can all go home. Obviously, that's not the case."
+msgstr "真正的一次性密码本，实现得当，有极强的安全保障。这样看来，密码学似乎已经结束了：加密问题解决了，我们都可以回家了。显然，事实并非如此。"
+
+#: ../../src/exclusive-or.rst:380
+msgid ""
+"One-time pads are rarely used, because they are horribly impractical: the "
+"key is at least as large as all information you'd like to transmit, *put "
+"together*. Plus, you'd have to exchange those keys securely, ahead of time, "
+"with all people you'd like to communicate with. We'd like to communicate "
+"securely with everyone on the Internet, and that's a very large number of "
+"people. Furthermore, since the keys have to consist of truly random data for"
+" its security property to hold, key generation is fairly difficult and time-"
+"consuming without specialized hardware."
+msgstr ""
+"一次性密码本很少被使用，因为它们太不实用了：密钥至少要和你想传输的所有信息*加在一起*一样大。另外，你必须提前和所有你想交流的人安全地交换这些密钥。我们想和互联网上的所有人安全地交流，那是一个非常庞大的数字。此外，由于密钥必须由真正的随机数据组成，才能保证安全，如果没有专门的硬件，密钥的生成是相当困难和耗时的。"
+
+#: ../../src/exclusive-or.rst:389
+msgid ""
+"One-time pads pose a trade-off. It's an algorithm with a solid information-"
+"theoretic security guarantee, which you can not get from any other system. "
+"On the other hand, it also has extremely impractical key exchange "
+"requirements. However, as we'll see throughout this book, secure symmetric "
+"encryption algorithms aren't the pain point of modern cryptosystems. "
+"Cryptographers have designed plenty of those, while practical key management"
+" remains one of the toughest challenges facing modern cryptography. One-time"
+" pads may solve a problem, but it's the wrong problem."
+msgstr ""
+"一次性密码本有取有舍。它是一种具有坚实的信息论安全保证的算法，这是其他任何系统都无法获得的。另一方面，它也有极其不切实际的密钥交换要求。然而，正如我们在本书中看到的，安全的对称加密算法并不是现代密码系统的痛点。密码学家们已经设计了很多安全的对称加密算法，而实用的密钥管理仍然是现代密码学面临的最艰难的挑战之一。一次性密码本也许解决了一个问题，但这不是要解决的问题。"
+
+#: ../../src/exclusive-or.rst:399
+msgid ""
+"While they may have their uses, they're obviously not a panacea. We need "
+"something with manageable key sizes while maintaining secrecy. We need ways "
+"to negotiate keys over the Internet with people we've never met before."
+msgstr ""
+"虽然它们可能有其用途，但显然不是万灵药。我们需要一个可控密钥大小，同时保持保密性的方法。我们需要一些可以通过互联网与从未谋面的人协商密钥的方法。"

@@ -49,7 +49,7 @@ master_doc = "index"
 # these can be read inside the .rst, and are also used in the latex preamble + sphinx stuff
 project = "Crypto 101"
 copyright = "2020, Laurens Van Houtven (lvh)"
-author = "lvh"
+author = "lvh \\\ translated to Chinese by YAAANNN"
 
 # these can be accessed as |version| and |release| inside the .rst source
 import subprocess
@@ -149,7 +149,9 @@ latex_elements = {
     ),
     "fontpkg": r"""
 \usepackage{fontspec}
+\usepackage{xeCJK}
 \defaultfontfeatures{Ligatures=TeX}
+
 \setmainfont{Source Serif Pro}
 \setmonofont[Scale=MatchLowercase]{Source Code Pro}
 \usepackage{microtype}
